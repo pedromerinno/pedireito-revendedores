@@ -66,7 +66,7 @@ const Index = () => {
       <LaunchDateBanner date={targetDate} />
 
       {/* O que fazer agora + Urgência + Galeria – fundo bege */}
-      <main className="flex-1 bg-[#FCF8ED] pt-14 sm:pt-20 md:pt-24 pb-0">
+      <main className="flex-1 bg-[#FCF8ED] pt-4 sm:pt-6 md:pt-8 pb-0">
         <PreparationChecklist />
         <UrgencySection />
         <ProductGallery />

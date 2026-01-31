@@ -27,12 +27,12 @@ export function UrgencySection() {
         {urgencyItems.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-start justify-between bg-primary rounded-2xl p-8 sm:p-10 min-h-[240px] sm:min-h-[280px] text-left"
+            className="flex flex-col items-start justify-between bg-primary rounded-2xl p-5 sm:p-10 min-h-[180px] sm:min-h-[280px] text-left"
           >
-            <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-secondary/20 rounded-full flex items-center justify-center">
-              <item.icon className="w-7 h-7 sm:w-8 sm:h-8 text-secondary" />
+            <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 bg-secondary/20 rounded-full flex items-center justify-center">
+              <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-secondary" />
             </div>
-            <span className="text-base sm:text-lg text-white leading-snug font-medium">{item.text}</span>
+            <span className="text-base sm:text-lg text-white leading-snug font-medium max-w-[220px] sm:max-w-[280px]">{item.text}</span>
           </div>
         ))}
       </div>
