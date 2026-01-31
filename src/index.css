@@ -15,22 +15,22 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
 
-    /* Brand Blue - Primary */
-    --primary: 214 100% 40%;
+    /* Brand Blue - Primary #0600FF */
+    --primary: 241 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Brand Yellow - Secondary/Accent */
-    --secondary: 48 100% 50%;
+    /* Brand Yellow - Secondary/Accent #FEBF00 */
+    --secondary: 45 100% 50%;
     --secondary-foreground: 220 20% 10%;
 
-    /* Brand Green - Success/CTA Active */
-    --success: 145 100% 29%;
+    /* Brand Green - Success/CTA #2B9402 */
+    --success: 105 97% 29%;
     --success-foreground: 0 0% 100%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 220 10% 40%;
 
-    --accent: 48 100% 50%;
+    --accent: 45 100% 50%;
     --accent-foreground: 220 20% 10%;
 
     --destructive: 0 84% 60%;
@@ -38,7 +38,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 214 100% 40%;
+    --ring: 241 100% 50%;
 
     --radius: 0.5rem;
 
@@ -62,19 +62,19 @@
     --popover: 220 20% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 214 100% 50%;
+    --primary: 241 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 48 100% 50%;
+    --secondary: 45 100% 50%;
     --secondary-foreground: 220 20% 10%;
 
-    --success: 145 100% 35%;
+    --success: 105 97% 35%;
     --success-foreground: 0 0% 100%;
 
     --muted: 220 15% 20%;
     --muted-foreground: 220 10% 60%;
 
-    --accent: 48 100% 50%;
+    --accent: 45 100% 50%;
     --accent-foreground: 220 20% 10%;
 
     --destructive: 0 62% 30%;
@@ -82,7 +82,7 @@
 
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 214 100% 50%;
+    --ring: 241 100% 50%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -102,5 +102,14 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
   }
 }

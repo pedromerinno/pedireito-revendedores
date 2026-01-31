@@ -24,29 +24,29 @@ const Layout = ({ children }: LayoutProps) => (
 
     <main className="flex-1 bg-muted">{children}</main>
 
-    <footer className="bg-white py-10 px-6 sm:py-12 sm:px-8 border-t border-border">
+    <footer className="bg-[#2B9402] py-10 px-6 sm:py-12 sm:px-8 -mt-px">
       <div className="max-w-[600px] mx-auto text-center space-y-4">
-        <div className="flex justify-center gap-6 text-sm">
+        <div className="flex justify-center gap-6 text-sm font-medium">
           <Link
             to="/"
-            className="text-success/80 hover:text-success font-medium transition-colors"
+            className="text-secondary hover:text-secondary/90 transition-colors uppercase tracking-wide"
           >
             Home
           </Link>
           <Link
             to="/faq"
-            className="text-success/80 hover:text-success font-medium transition-colors"
+            className="text-secondary hover:text-secondary/90 transition-colors uppercase tracking-wide"
           >
             FAQ
           </Link>
           <Link
             to="/faq#suporte"
-            className="text-success/80 hover:text-success font-medium transition-colors"
+            className="text-secondary hover:text-secondary/90 transition-colors uppercase tracking-wide"
           >
             Suporte
           </Link>
         </div>
-        <p className="text-xs text-success/70">
+        <p className="text-xs text-secondary/80">
           Horário de Brasília. Sem prorrogação.
         </p>
       </div>

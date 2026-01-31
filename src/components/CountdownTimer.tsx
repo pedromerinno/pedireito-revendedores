@@ -12,12 +12,10 @@ interface CountdownTimerProps {
 function TimeBlock({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-secondary text-primary rounded-lg p-3 sm:p-4 min-w-[60px] sm:min-w-[80px]">
-        <span className="text-3xl sm:text-5xl font-bold tabular-nums">
-          {value.toString().padStart(2, '0')}
-        </span>
-      </div>
-      <span className="text-xs sm:text-sm text-primary-foreground/80 mt-2 uppercase tracking-wider font-medium">
+      <span className="text-5xl sm:text-6xl md:text-7xl font-bold tabular-nums text-[#2B9402]">
+        {value.toString().padStart(2, "0")}
+      </span>
+      <span className="text-base sm:text-lg text-[#2B9402]/90 mt-3 uppercase tracking-wider font-medium">
         {label}
       </span>
     </div>
@@ -26,13 +24,13 @@ function TimeBlock({ value, label }: { value: number; label: string }) {
 
 export function CountdownTimer({ timeLeft }: CountdownTimerProps) {
   return (
-    <div className="flex gap-2 sm:gap-4 justify-center">
+    <div className="flex gap-6 sm:gap-8 md:gap-10 justify-center items-start">
       <TimeBlock value={timeLeft.days} label="Dias" />
-      <div className="text-secondary text-3xl sm:text-5xl font-bold self-start mt-3 sm:mt-4">:</div>
+      <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#2B9402] self-start mt-0">:</span>
       <TimeBlock value={timeLeft.hours} label="Horas" />
-      <div className="text-secondary text-3xl sm:text-5xl font-bold self-start mt-3 sm:mt-4">:</div>
+      <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#2B9402] self-start mt-0">:</span>
       <TimeBlock value={timeLeft.minutes} label="Min" />
-      <div className="text-secondary text-3xl sm:text-5xl font-bold self-start mt-3 sm:mt-4">:</div>
+      <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[#2B9402] self-start mt-0">:</span>
       <TimeBlock value={timeLeft.seconds} label="Seg" />
     </div>
   );

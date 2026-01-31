@@ -20,28 +20,37 @@ export function PreparationChecklist() {
   };
 
   return (
-    <section className="w-full max-w-2xl mx-auto bg-card rounded-xl p-6 sm:p-8 shadow-sm border border-border">
-      <h2 className="text-lg font-semibold text-foreground mb-5">
-        O que fazer agora:
-      </h2>
-      <ul className="space-y-5">
+    <section className="w-full max-w-4xl mx-auto px-4 py-10 sm:py-12" aria-labelledby="checklist-heading">
+      <div className="text-center">
+        <h2
+          id="checklist-heading"
+          className="inline-block text-lg font-semibold text-[#2B9402] px-4 py-2 rounded-2xl bg-[#FFF2C9] w-fit mb-10 sm:mb-12"
+        >
+          O que fazer agora:
+        </h2>
+      </div>
+      <ul className="space-y-3">
         {checklistItems.map((item, index) => (
-          <li key={index} className="flex items-start gap-4">
-            <Checkbox
-              id={`item-${index}`}
-              checked={checkedItems[index]}
-              onCheckedChange={() => toggleItem(index)}
-              className="mt-0.5 border-primary data-[state=checked]:bg-success data-[state=checked]:border-success"
-            />
+          <li key={index}>
             <label
               htmlFor={`item-${index}`}
-              className={`text-base cursor-pointer transition-colors leading-snug ${
-                checkedItems[index]
-                  ? "text-muted-foreground line-through"
-                  : "text-foreground"
+              className={`flex items-center gap-4 bg-[#207300] rounded-2xl p-4 sm:p-5 min-h-[72px] sm:min-h-[80px] cursor-pointer transition-opacity hover:opacity-95 ${
+                checkedItems[index] ? "opacity-80" : ""
               }`}
             >
-              {item}
+              <Checkbox
+                id={`item-${index}`}
+                checked={checkedItems[index]}
+                onCheckedChange={() => toggleItem(index)}
+                className="flex-shrink-0 border-2 border-secondary bg-transparent data-[state=checked]:bg-secondary data-[state=checked]:border-secondary data-[state=checked]:text-[#207300]"
+              />
+              <span
+                className={`text-base text-white leading-snug ${
+                  checkedItems[index] ? "line-through opacity-90" : ""
+                }`}
+              >
+                {item}
+              </span>
             </label>
           </li>
         ))}
