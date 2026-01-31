@@ -6,9 +6,9 @@ interface LaunchDateBannerProps {
 
 function BannerContent({ day, month }: { day: string; month: string }) {
   return (
-    <div className="flex items-center shrink-0 whitespace-nowrap px-14 sm:px-20 md:px-28 lg:px-36">
-      <span className="text-secondary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">{day} {month}</span>
-      <span className="text-secondary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight ml-28 sm:ml-40 md:ml-56 lg:ml-72">ÁS 9H</span>
+    <div className="flex items-center shrink-0 whitespace-nowrap px-8 sm:px-12 md:px-16 lg:px-20">
+      <span className="text-secondary text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">{day} {month}</span>
+      <span className="text-secondary text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight ml-16 sm:ml-20 md:ml-28 lg:ml-36">ÁS 9H</span>
     </div>
   );
 }
