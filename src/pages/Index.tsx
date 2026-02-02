@@ -1,21 +1,13 @@
 import { Link } from "react-router-dom";
-import { Lock } from "lucide-react";
-import { useCountdown } from "@/hooks/useCountdown";
-import { CountdownTimer } from "@/components/CountdownTimer";
-import { PreparationChecklist } from "@/components/PreparationChecklist";
 import { LaunchDateBanner } from "@/components/LaunchDateBanner";
-import { UrgencySection } from "@/components/UrgencySection";
+import { RevendedoresForm } from "@/components/RevendedoresForm";
 import { ProductGallery } from "@/components/ProductGallery";
 import { Button } from "@/components/ui/button";
 import pedireitoLogo from "@/assets/pedireito-logo.svg";
 
 const Index = () => {
-  const { timeLeft, isExpired, targetDate } = useCountdown();
-
-  const handleCtaClick = () => {
-    if (isExpired) {
-      window.location.href = "https://www.usepedireito.com.br/";
-    }
+  const scrollToForm = () => {
+    document.getElementById("questionario-revendedores")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -29,7 +21,6 @@ const Index = () => {
             className="h-8 sm:h-10 mx-auto"
           />
         </div>
-        {/* Imagem fora do container, maior que o conteúdo */}
         <div className="mt-12 sm:mt-16 w-full flex justify-center">
           <img
             src="/Banner_Chinelo.gif"
@@ -39,36 +30,26 @@ const Index = () => {
           />
         </div>
         <div className="max-w-[768px] mx-auto text-center mt-12 sm:mt-16">
-          <div className="flex justify-center px-2 sm:px-4">
-            <CountdownTimer timeLeft={timeLeft} />
-          </div>
           <Button
-            onClick={handleCtaClick}
-            disabled={!isExpired}
-            className={`mt-12 sm:mt-16 w-auto px-8 sm:px-10 py-5 sm:py-6 text-base font-semibold rounded-full transition-all inline-flex items-center justify-center gap-2 ${
-              isExpired
-                ? "bg-black hover:bg-black/90 text-white"
-                : "bg-black text-white cursor-not-allowed opacity-90"
-            }`}
+            onClick={scrollToForm}
+            className="mt-12 sm:mt-16 w-auto px-8 sm:px-10 py-5 sm:py-6 text-base font-semibold rounded-full bg-black hover:bg-black/90 text-white transition-all"
           >
-            {!isExpired && <Lock className="h-5 w-5 shrink-0" aria-hidden />}
-            {isExpired ? "Compre agora!" : "A pré venda começa 9h"}
+            Quero ser revendedor
           </Button>
           <p className="mt-5 text-sm text-foreground/90">
-            {isExpired
-              ? "Corra! As unidades são limitadas."
-              : "Este botão ficará ativo no horário de abertura"}
+            Preencha o questionário e nossa equipe entrará em contato.
           </p>
         </div>
       </header>
 
-      {/* Banner azul – data */}
-      <LaunchDateBanner date={targetDate} />
+      {/* Faixa azul – Seja um Revendedor */}
+      <LaunchDateBanner text="Seja um Revendedor" />
 
-      {/* O que fazer agora + Urgência + Galeria – fundo bege */}
+      {/* Formulário + Galeria – fundo bege */}
       <main className="flex-1 bg-[#FCF8ED] pt-4 sm:pt-6 md:pt-8 pb-0">
-        <PreparationChecklist />
-        <UrgencySection />
+        <div id="questionario-revendedores">
+          <RevendedoresForm />
+        </div>
         <ProductGallery />
       </main>
 
@@ -87,7 +68,7 @@ const Index = () => {
             </Link>
           </div>
           <p className="text-xs text-secondary/80">
-            Horário de Brasília. Sem prorrogação.
+            Em breve nossa equipe entrará em contato com você.
           </p>
         </div>
       </footer>
