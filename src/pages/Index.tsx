@@ -29,7 +29,7 @@ const Index = () => {
             style={{ maxWidth: "min(1100px, 95vw)" }}
           />
         </div>
-        <div className="max-w-[768px] mx-auto text-center mt-12 sm:mt-16">
+        <div className="max-w-[768px] mx-auto text-center mt-0 sm:mt-2">
           <Button
             onClick={scrollToForm}
             className="mt-12 sm:mt-16 w-auto px-8 sm:px-10 py-5 sm:py-6 text-base font-semibold rounded-full bg-black hover:bg-black/90 text-white transition-all"

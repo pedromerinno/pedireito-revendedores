@@ -47,7 +47,7 @@ const defaultValues: RevendedorFormValues = {
 };
 
 const sectionContainerClass =
-  "rounded-xl border border-gray-200 bg-white p-3 sm:p-5 sm:p-6 space-y-4 shadow-sm";
+  "rounded-xl border border-gray-200 bg-white p-5 sm:p-6 md:p-8 space-y-4 shadow-sm";
 
 const inputClass =
   "h-11 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-foreground placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors";
