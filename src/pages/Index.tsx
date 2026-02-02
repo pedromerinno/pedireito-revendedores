@@ -1,17 +1,34 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { LaunchDateBanner } from "@/components/LaunchDateBanner";
 import { RevendedoresForm } from "@/components/RevendedoresForm";
+import { RevendedorStickyBar } from "@/components/RevendedorStickyBar";
 import { ProductGallery } from "@/components/ProductGallery";
 import { Button } from "@/components/ui/button";
 import pedireitoLogo from "@/assets/pedireito-logo.svg";
 
 const Index = () => {
+  const faixaAzulRef = useRef<HTMLDivElement>(null);
+  const [stickyBarVisible, setStickyBarVisible] = useState(false);
+
   const scrollToForm = () => {
     document.getElementById("questionario-revendedores")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = faixaAzulRef.current;
+      if (!el) return;
+      setStickyBarVisible(el.getBoundingClientRect().bottom < 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
+      <RevendedorStickyBar onFillForm={scrollToForm} visible={stickyBarVisible} />
       {/* Hero – fundo amarelo */}
       <header className="bg-secondary py-16 sm:py-20 md:py-24 px-4 sm:px-6">
         <div className="max-w-[768px] mx-auto text-center">
@@ -43,7 +60,9 @@ const Index = () => {
       </header>
 
       {/* Faixa azul – Seja um Revendedor */}
-      <LaunchDateBanner text="Seja um Revendedor" />
+      <div ref={faixaAzulRef}>
+        <LaunchDateBanner text="Seja um Revendedor" />
+      </div>
 
       {/* Formulário + Galeria – fundo bege */}
       <main className="flex-1 bg-[#FCF8ED] pt-4 sm:pt-6 md:pt-8 pb-0">

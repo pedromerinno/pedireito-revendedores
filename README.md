@@ -1,6 +1,6 @@
 # Pé Direito – Revendedores
 
-Landing e formulário de cadastro para revendedores Pé Direito, com integração ActiveCampaign.
+Landing e formulário de cadastro para revendedores Pé Direito, com integração Supabase (Pé Direito) e opcionalmente ActiveCampaign.
 
 ## Tecnologias
 
@@ -30,10 +30,14 @@ O deploy deve ser feito a partir do repositório:
 
    | Nome                 | Descrição                                      | Obrigatório |
    |----------------------|------------------------------------------------|-------------|
-   | `AC_API_URL`         | URL da API ActiveCampaign (ex: `https://xxx.api-us1.com`) | Sim |
-   | `AC_API_KEY`         | Chave da API (ActiveCampaign > Configurações > Desenvolvedor) | Sim |
-   | `AC_LIST_ID`         | ID da lista de revendedores (Campanhas > Listas) | Sim |
-   | `AC_CUSTOM_FIELD_ID` | ID do campo customizado para o JSON do questionário (opcional) | Não |
+   | `SUPABASE_URL`       | URL do projeto Supabase Pé Direito (ex: `https://xxx.supabase.co`) | Sim |
+   | `SUPABASE_ANON_KEY`  | Chave anon do Supabase (Dashboard > Project Settings > API) | Sim |
+   | `AC_API_URL`         | URL da API ActiveCampaign (opcional) | Não |
+   | `AC_API_KEY`         | Chave da API ActiveCampaign | Não |
+   | `AC_LIST_ID`         | ID da lista de revendedores | Não |
+   | `AC_CUSTOM_FIELD_ID` | ID do campo customizado (opcional) | Não |
+
+   Os questionários são salvos na tabela `revendedores` do Supabase. O ActiveCampaign é opcional (envio em paralelo).
 
 3. Faça o deploy. As chaves ficam apenas no servidor (função serverless); nenhuma chave é exposta no frontend.
 
