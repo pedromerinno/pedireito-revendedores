@@ -47,7 +47,7 @@ const defaultValues: RevendedorFormValues = {
 };
 
 const sectionContainerClass =
-  "rounded-xl border border-[#2B9402]/20 bg-white/80 p-6 sm:p-6 space-y-6 shadow-sm";
+  "rounded-xl border border-[#2B9402]/20 bg-white/80 p-4 sm:p-5 space-y-4 shadow-sm";
 
 function SectionTitle({ number, title }: { number: string; title: string }) {
   return (
@@ -113,7 +113,7 @@ export function RevendedoresForm() {
 
   return (
     <section className="w-full max-w-2xl mx-auto px-4 py-10 sm:py-12" aria-label="Questionário para revendedores Pé Direito">
-      <div className="bg-[#2B9402] rounded-2xl p-6 sm:p-8 shadow-lg space-y-8 sm:space-y-10">
+      <div className="bg-[#2B9402] rounded-2xl p-5 sm:p-6 shadow-lg space-y-5 sm:space-y-6">
         {/* Header */}
         <div className="rounded-xl bg-secondary py-6 sm:py-8 px-6 shadow-sm">
           <header className="text-center" aria-label="Pé Direito">
@@ -122,11 +122,11 @@ export function RevendedoresForm() {
         </div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 sm:space-y-10">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
               {/* Informações Básicas */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="1" title="Informações Básicas" />
-                <div className="space-y-4">
+                <div className="space-y-3">
           <FormField
             control={form.control}
             name="nomeCompleto"
@@ -260,7 +260,7 @@ export function RevendedoresForm() {
               {/* Perfil do Revendedor */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="2" title="Perfil do Revendedor" />
-                <div className="space-y-4">
+                <div className="space-y-3">
           <FormField
             control={form.control}
             name="vendeCalcadosVestuario"
@@ -329,7 +329,7 @@ export function RevendedoresForm() {
               {/* Alinhamento com a Marca */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="3" title="Alinhamento com a Marca" />
-                <div className="space-y-4">
+                <div className="space-y-3">
           <FormField
             control={form.control}
             name="oQueChamouAtencao"
@@ -375,7 +375,7 @@ export function RevendedoresForm() {
               {/* Potencial de Mercado */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="4" title="Potencial de Mercado" />
-                <div className="space-y-4">
+                <div className="space-y-3">
           <FormField
             control={form.control}
             name="paresPorMes"
@@ -396,7 +396,7 @@ export function RevendedoresForm() {
               {submitError}
             </p>
           )}
-          <div className="pt-6 flex justify-center">
+          <div className="pt-3 flex justify-center">
             <Button
               type="submit"
               disabled={isSubmitting}

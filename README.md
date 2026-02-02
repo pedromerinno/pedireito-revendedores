@@ -19,7 +19,11 @@ A API do formulário (`/api/submit-revendedor`) só funciona em ambiente com var
 
 ## Deploy na Vercel
 
-1. Conecte este repositório ao projeto na [Vercel](https://vercel.com).
+O deploy deve ser feito a partir do repositório:
+
+**https://github.com/pedromerinno/pedireito-revendedores**
+
+1. Na [Vercel](https://vercel.com), crie ou edite o projeto e conecte o repositório **pedireito-revendedores** (ou importe por esse URL).
 2. **Variáveis de ambiente** (obrigatório para o formulário funcionar):
    - Vá em **Settings > Environment Variables** do projeto.
    - Adicione (nunca commite valores reais no repositório):
@@ -33,9 +37,9 @@ A API do formulário (`/api/submit-revendedor`) só funciona em ambiente com var
 
 3. Faça o deploy. As chaves ficam apenas no servidor (função serverless); nenhuma chave é exposta no frontend.
 
-## Repositório no GitHub
+## Enviar código para o repositório de deploy
 
-O código está preparado para o repositório [pedireito-revendedores](https://github.com/pedromerinno/pedireito-revendedores). Para subir (ou atualizar) o código:
+O deploy na Vercel usa o repositório [pedireito-revendedores](https://github.com/pedromerinno/pedireito-revendedores). Para subir (ou atualizar) o código nesse repositório:
 
 ```sh
 # Se ainda não adicionou o remote:
