@@ -32,3 +32,17 @@ A API do formulário (`/api/submit-revendedor`) só funciona em ambiente com var
    | `AC_CUSTOM_FIELD_ID` | ID do campo customizado para o JSON do questionário (opcional) | Não |
 
 3. Faça o deploy. As chaves ficam apenas no servidor (função serverless); nenhuma chave é exposta no frontend.
+
+## Repositório no GitHub
+
+O código está preparado para o repositório [pedireito-revendedores](https://github.com/pedromerinno/pedireito-revendedores). Para subir (ou atualizar) o código:
+
+```sh
+# Se ainda não adicionou o remote:
+git remote add revendedores https://github.com/pedromerinno/pedireito-revendedores.git
+
+# Enviar o branch main
+git push -u revendedores main
+```
+
+Se o push pedir autenticação, use um [Personal Access Token](https://github.com/settings/tokens) ou SSH.
