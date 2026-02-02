@@ -14,7 +14,7 @@ const Index = () => {
 
   const handleCtaClick = () => {
     if (isExpired) {
-      window.location.href = "https://www.usepedireito.com.br";
+      window.location.href = "https://www.usepedireito.com.br/";
     }
   };
 
@@ -52,7 +52,7 @@ const Index = () => {
             }`}
           >
             {!isExpired && <Lock className="h-5 w-5 shrink-0" aria-hidden />}
-            {isExpired ? "CARRINHO ABERTO - CLIQUE AQUI" : "CARRINHO ABRE SEGUNDA, 9H"}
+            {isExpired ? "Compre agora!" : "A pré venda começa 9h"}
           </Button>
           <p className="mt-5 text-sm text-foreground/90">
             {isExpired
