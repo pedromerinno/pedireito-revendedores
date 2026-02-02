@@ -47,7 +47,7 @@ const defaultValues: RevendedorFormValues = {
 };
 
 const sectionContainerClass =
-  "rounded-xl border border-gray-200 bg-white p-5 sm:p-6 space-y-4 shadow-sm";
+  "rounded-xl border border-gray-200 bg-white p-3 sm:p-5 sm:p-6 space-y-4 shadow-sm";
 
 const inputClass =
   "h-11 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-foreground placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors";
@@ -121,7 +121,7 @@ export function RevendedoresForm() {
 
   return (
     <section className="w-full max-w-4xl mx-auto px-4 py-10 sm:py-12" aria-label="Questionário para revendedores Pé Direito">
-      <div className="bg-[#2B9402] rounded-2xl p-5 sm:p-6 shadow-lg space-y-5 sm:space-y-6">
+      <div className="bg-[#2B9402] sm:bg-transparent rounded-2xl sm:rounded-none p-3 sm:py-0 sm:px-0 sm:shadow-none shadow-lg space-y-4 sm:space-y-5 sm:space-y-6">
         {/* Header */}
         <div className="rounded-xl bg-secondary py-6 sm:py-8 px-6 shadow-sm">
           <header className="text-center" aria-label="Pé Direito">
