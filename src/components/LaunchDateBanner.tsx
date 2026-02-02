@@ -9,7 +9,7 @@ interface LaunchDateBannerProps {
 function BannerContentText({ text }: { text: string }) {
   return (
     <div className="flex items-center shrink-0 whitespace-nowrap px-8 sm:px-12 md:px-16 lg:px-20">
-      <span className="text-secondary text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+      <span className="text-secondary text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight uppercase">
         {text}
       </span>
     </div>

@@ -47,7 +47,15 @@ const defaultValues: RevendedorFormValues = {
 };
 
 const sectionContainerClass =
-  "rounded-xl border border-[#2B9402]/20 bg-white/80 p-4 sm:p-5 space-y-4 shadow-sm";
+  "rounded-xl border border-gray-200 bg-white p-5 sm:p-6 space-y-4 shadow-sm";
+
+const inputClass =
+  "h-11 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-foreground placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors";
+
+const textareaClass =
+  "min-h-[100px] rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-foreground placeholder:text-gray-400 focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors resize-y";
+
+const labelClass = "text-sm font-semibold text-gray-700";
 
 function SectionTitle({ number, title }: { number: string; title: string }) {
   return (
@@ -98,7 +106,7 @@ export function RevendedoresForm() {
 
   if (submitted) {
     return (
-      <section className="w-full max-w-2xl mx-auto px-4 py-12 sm:py-16" aria-labelledby="obrigado-heading">
+      <section className="w-full max-w-4xl mx-auto px-4 py-12 sm:py-16" aria-labelledby="obrigado-heading">
         <div className="bg-[#FFF2C9] rounded-2xl p-8 sm:p-10 text-center border border-[#2B9402]/20">
           <h2 id="obrigado-heading" className="text-xl font-semibold text-[#2B9402] mb-4">
             Obrigado por responder ao questionário!
@@ -112,7 +120,7 @@ export function RevendedoresForm() {
   }
 
   return (
-    <section className="w-full max-w-2xl mx-auto px-4 py-10 sm:py-12" aria-label="Questionário para revendedores Pé Direito">
+    <section className="w-full max-w-4xl mx-auto px-4 py-10 sm:py-12" aria-label="Questionário para revendedores Pé Direito">
       <div className="bg-[#2B9402] rounded-2xl p-5 sm:p-6 shadow-lg space-y-5 sm:space-y-6">
         {/* Header */}
         <div className="rounded-xl bg-secondary py-6 sm:py-8 px-6 shadow-sm">
@@ -126,15 +134,15 @@ export function RevendedoresForm() {
               {/* Informações Básicas */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="1" title="Informações Básicas" />
-                <div className="space-y-3">
+                <div className="space-y-4">
           <FormField
             control={form.control}
             name="nomeCompleto"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nome completo</FormLabel>
+                <FormLabel className={labelClass}>Nome completo</FormLabel>
                 <FormControl>
-                  <Input placeholder="Seu nome completo" {...field} />
+                  <Input className={inputClass} placeholder="Seu nome completo" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -145,9 +153,9 @@ export function RevendedoresForm() {
             name="empresaLoja"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Empresa / Loja</FormLabel>
+                <FormLabel className={labelClass}>Empresa / Loja</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nome da empresa ou loja" {...field} />
+                  <Input className={inputClass} placeholder="Nome da empresa ou loja" {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -157,9 +165,9 @@ export function RevendedoresForm() {
             name="cnpj"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>CNPJ (se houver)</FormLabel>
+                <FormLabel className={labelClass}>CNPJ (se houver)</FormLabel>
                 <FormControl>
-                  <Input placeholder="00.000.000/0000-00" {...field} />
+                  <Input className={inputClass} placeholder="00.000.000/0000-00" {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -169,9 +177,9 @@ export function RevendedoresForm() {
             name="cidadeEstado"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Cidade / Estado</FormLabel>
+                <FormLabel className={labelClass}>Cidade / Estado</FormLabel>
                 <FormControl>
-                  <Input placeholder="Cidade, UF" {...field} />
+                  <Input className={inputClass} placeholder="Cidade, UF" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -182,9 +190,9 @@ export function RevendedoresForm() {
             name="telefoneWhatsapp"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Telefone / WhatsApp</FormLabel>
+                <FormLabel className={labelClass}>Telefone / WhatsApp</FormLabel>
                 <FormControl>
-                  <Input placeholder="(00) 00000-0000" {...field} />
+                  <Input className={inputClass} placeholder="(00) 00000-0000" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -195,9 +203,9 @@ export function RevendedoresForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>E-mail (opcional)</FormLabel>
+                <FormLabel className={labelClass}>E-mail (opcional)</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="seu@email.com" {...field} />
+                  <Input type="email" className={inputClass} placeholder="seu@email.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -208,9 +216,9 @@ export function RevendedoresForm() {
             name="instagramRedes"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Instagram / Redes sociais</FormLabel>
+                <FormLabel className={labelClass}>Instagram / Redes sociais</FormLabel>
                 <FormControl>
-                  <Input placeholder="@usuario ou link" {...field} />
+                  <Input className={inputClass} placeholder="@usuario ou link" {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -220,9 +228,9 @@ export function RevendedoresForm() {
             name="tempoMercado"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Tempo atuando no mercado</FormLabel>
+                <FormLabel className={labelClass}>Tempo atuando no mercado</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex: 2 anos" {...field} />
+                  <Input className={inputClass} placeholder="Ex: 2 anos" {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -232,7 +240,7 @@ export function RevendedoresForm() {
             name="entendeProposito"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel className={labelClass}>
                   Você entende que Pé Direito é mais que um produto — é uma marca com propósito?
                 </FormLabel>
                 <FormControl>
@@ -260,13 +268,13 @@ export function RevendedoresForm() {
               {/* Perfil do Revendedor */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="2" title="Perfil do Revendedor" />
-                <div className="space-y-3">
+                <div className="space-y-4">
           <FormField
             control={form.control}
             name="vendeCalcadosVestuario"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Você já trabalha com venda de calçados ou vestuário?</FormLabel>
+                <FormLabel className={labelClass}>Você já trabalha com venda de calçados ou vestuário?</FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}
@@ -291,30 +299,30 @@ export function RevendedoresForm() {
             name="formaVenda"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Você vende de forma:</FormLabel>
+                <FormLabel className={labelClass}>Você vende de forma:</FormLabel>
                 <FormControl>
                   <RadioGroup
                     onValueChange={field.onChange}
                     value={field.value}
                     className="flex flex-col gap-2"
                   >
-                    <label className={cn("flex items-center gap-2 cursor-pointer rounded-md p-2 hover:bg-muted/50", field.value === "fisica" && "bg-muted/50")}>
+                    <label className={cn("flex items-center gap-3 cursor-pointer rounded-lg border border-gray-200 bg-white px-4 py-2.5 transition-colors hover:border-gray-300", field.value === "fisica" && "border-primary bg-primary/5")}>
                       <RadioGroupItem value="fisica" id="forma-fisica" />
                       <span>Loja física</span>
                     </label>
-                    <label className={cn("flex items-center gap-2 cursor-pointer rounded-md p-2 hover:bg-muted/50", field.value === "online" && "bg-muted/50")}>
+                    <label className={cn("flex items-center gap-3 cursor-pointer rounded-lg border border-gray-200 bg-white px-4 py-2.5 transition-colors hover:border-gray-300", field.value === "online" && "border-primary bg-primary/5")}>
                       <RadioGroupItem value="online" id="forma-online" />
                       <span>Loja online</span>
                     </label>
-                    <label className={cn("flex items-center gap-2 cursor-pointer rounded-md p-2 hover:bg-muted/50", field.value === "marketplace" && "bg-muted/50")}>
+                    <label className={cn("flex items-center gap-3 cursor-pointer rounded-lg border border-gray-200 bg-white px-4 py-2.5 transition-colors hover:border-gray-300", field.value === "marketplace" && "border-primary bg-primary/5")}>
                       <RadioGroupItem value="marketplace" id="forma-marketplace" />
                       <span>Marketplace</span>
                     </label>
-                    <label className={cn("flex items-center gap-2 cursor-pointer rounded-md p-2 hover:bg-muted/50", field.value === "porta" && "bg-muted/50")}>
+                    <label className={cn("flex items-center gap-3 cursor-pointer rounded-lg border border-gray-200 bg-white px-4 py-2.5 transition-colors hover:border-gray-300", field.value === "porta" && "border-primary bg-primary/5")}>
                       <RadioGroupItem value="porta" id="forma-porta" />
                       <span>Porta a porta</span>
                     </label>
-                    <label className={cn("flex items-center gap-2 cursor-pointer rounded-md p-2 hover:bg-muted/50", field.value === "mistos" && "bg-muted/50")}>
+                    <label className={cn("flex items-center gap-3 cursor-pointer rounded-lg border border-gray-200 bg-white px-4 py-2.5 transition-colors hover:border-gray-300", field.value === "mistos" && "border-primary bg-primary/5")}>
                       <RadioGroupItem value="mistos" id="forma-mistos" />
                       <span>Mistos</span>
                     </label>
@@ -329,15 +337,15 @@ export function RevendedoresForm() {
               {/* Alinhamento com a Marca */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="3" title="Alinhamento com a Marca" />
-                <div className="space-y-3">
+                <div className="space-y-4">
           <FormField
             control={form.control}
             name="oQueChamouAtencao"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>O que mais chamou sua atenção na marca Pé Direito?</FormLabel>
+                <FormLabel className={labelClass}>O que mais chamou sua atenção na marca Pé Direito?</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Conte um pouco..." className="min-h-[100px]" {...field} />
+                  <Textarea className={textareaClass} placeholder="Conte um pouco..." {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -347,7 +355,7 @@ export function RevendedoresForm() {
             name="seguePadroesMarca"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel className={labelClass}>
                   Está disposto(a) a seguir padrões de posicionamento e comunicação oficial da marca?
                 </FormLabel>
                 <FormControl>
@@ -375,15 +383,15 @@ export function RevendedoresForm() {
               {/* Potencial de Mercado */}
               <div className={sectionContainerClass}>
                 <SectionTitle number="4" title="Potencial de Mercado" />
-                <div className="space-y-3">
+                <div className="space-y-4">
           <FormField
             control={form.control}
             name="paresPorMes"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Quantos pares acredita conseguir vender por mês?</FormLabel>
+                <FormLabel className={labelClass}>Quantos pares acredita conseguir vender por mês?</FormLabel>
                 <FormControl>
-                  <Input type="number" min={0} placeholder="Ex: 20" {...field} />
+                  <Input type="number" min={0} className={inputClass} placeholder="Ex: 20" {...field} />
                 </FormControl>
               </FormItem>
             )}
