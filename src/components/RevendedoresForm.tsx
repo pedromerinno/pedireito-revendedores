@@ -57,6 +57,15 @@ const textareaClass =
 
 const labelClass = "text-sm font-semibold text-gray-700";
 
+function formatParesInput(value: string | undefined): string {
+  if (!value?.trim()) return "";
+  const digits = value.replace(/\D/g, "");
+  if (!digits) return "";
+  const num = parseInt(digits, 10);
+  if (isNaN(num)) return "";
+  return num.toLocaleString("pt-BR");
+}
+
 function SectionTitle({ number, title }: { number: string; title: string }) {
   return (
     <h3 className="text-base font-semibold text-[#2B9402] mb-4 flex items-center gap-3">
@@ -389,9 +398,20 @@ export function RevendedoresForm() {
             name="paresPorMes"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className={labelClass}>Quantos pares acredita conseguir vender por mês?</FormLabel>
+                <FormLabel className={labelClass}>Quantos pares deseja revender</FormLabel>
                 <FormControl>
-                  <Input type="number" min={0} className={inputClass} placeholder="Ex: 20" {...field} />
+                  <Input
+                    type="text"
+                    inputMode="numeric"
+                    className={inputClass}
+                    placeholder="Ex: 20"
+                    value={formatParesInput(field.value)}
+                    onChange={(e) => {
+                      const raw = e.target.value.replace(/\D/g, "");
+                      field.onChange(raw);
+                    }}
+                    onBlur={field.onBlur}
+                  />
                 </FormControl>
               </FormItem>
             )}

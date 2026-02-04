@@ -41,6 +41,30 @@ O deploy deve ser feito a partir do repositório:
 
 3. Faça o deploy. As chaves ficam apenas no servidor (função serverless); nenhuma chave é exposta no frontend.
 
+## Deploy no GitHub (GitHub Pages)
+
+O projeto tem um workflow de deploy via GitHub Actions. O site é publicado no GitHub Pages a cada push na branch `main`.
+
+### Configuração
+
+1. **Repositório no GitHub** – Crie ou conecte o repositório e faça push do código.
+
+2. **Secrets** – Em **Settings > Secrets and variables > Actions**, adicione:
+   - `VITE_SUPABASE_URL` – URL do projeto Supabase
+   - `VITE_SUPABASE_ANON_KEY` – Chave anônima do Supabase
+
+3. **GitHub Pages** – Em **Settings > Pages**:
+   - **Source**: GitHub Actions
+   - O workflow será executado a cada push em `main`
+
+4. **Base path** – O build usa `base: "/pedireito/"`. Se a URL for `usuario.github.io/outro-nome`, ajuste em `vite.config.ts` (variável `base` quando `GITHUB_ACTIONS` é true).
+
+### Importante
+
+O GitHub Pages hospeda apenas arquivos estáticos. As rotas `/api/*` **não funcionam** ali. O formulário público depende de `/api/submit-revendedor`. Para ter formulário e admin funcionando, use **Vercel** (ver abaixo).
+
+---
+
 ## Enviar código para o repositório de deploy
 
 O deploy na Vercel usa o repositório [pedireito-revendedores](https://github.com/pedromerinno/pedireito-revendedores). Para subir (ou atualizar) o código nesse repositório:
