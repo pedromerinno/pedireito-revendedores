@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Users, Clock, CheckCircle, XCircle, Package } from 'lucide-react';
 import AdminHeader from '@/components/admin/AdminHeader';
 import RevendedorTable from '@/components/admin/RevendedorTable';
 import { useRevendedorStats } from '@/hooks/useRevendedores';
@@ -36,6 +36,16 @@ export default function AdminDashboard() {
       color: 'text-red-600',
       bgColor: 'bg-red-100',
     },
+    {
+      title: 'Total de Pares',
+      value:
+        stats?.totalPares != null
+          ? `${stats.totalPares.toLocaleString('pt-BR')} und`
+          : '0 und',
+      icon: Package,
+      color: 'text-violet-600',
+      bgColor: 'bg-violet-100',
+    },
   ];
 
   return (
@@ -44,7 +54,7 @@ export default function AdminDashboard() {
 
       <main className="max-w-7xl mx-auto px-4 py-6">
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
           {statCards.map((stat) => (
             <Card key={stat.title}>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

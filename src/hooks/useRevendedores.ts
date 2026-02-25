@@ -72,15 +72,22 @@ export function useRevendedorStats() {
 
       const { data, error } = await supabase
         .from('revendedores')
-        .select('status');
+        .select('status, pares_por_mes');
 
       if (error) throw error;
+
+      const totalPares = (data || []).reduce((acc, r) => {
+        if (!r.pares_por_mes?.trim()) return acc;
+        const num = parseInt(r.pares_por_mes.replace(/\D/g, ''), 10);
+        return acc + (isNaN(num) ? 0 : num);
+      }, 0);
 
       const stats = {
         total: data?.length || 0,
         pendente: data?.filter((r) => r.status === 'pendente' || !r.status).length || 0,
         aprovado: data?.filter((r) => r.status === 'aprovado').length || 0,
         rejeitado: data?.filter((r) => r.status === 'rejeitado').length || 0,
+        totalPares,
       };
 
       return stats;
